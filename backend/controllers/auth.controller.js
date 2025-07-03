@@ -26,9 +26,9 @@ export const signup = async (req, res) => {
     const newUser = new User({
       fullName,
       username,
-      hashedPassword,
+      password: hashedPassword,
       gender,
-      ProfilePic: gender === "male" ? boyProfilePic : girlProfilePic
+      profilePic: gender === "male" ? boyProfilePic : girlProfilePic
     });
 
     if (newUser) {
@@ -65,10 +65,10 @@ export const login = async (req, res) => {
     generateTokenSetCookie(user._id, res);
 
     res.status(200).json({
-      _id: newUser._id,
-      fullName: newUser.fullName,
-      username: newUser.username,
-      ProfilePic: newUser.ProfilePic
+      _id: user._id,
+      fullName: user.fullName,
+      username: user.username,
+      profilePic: user.profilePic
     });
 
   } catch (err) {
