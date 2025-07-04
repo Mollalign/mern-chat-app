@@ -13,6 +13,8 @@ const Message = ({ message }) => {
   const profilePic = fromMe ? authUser.profilePic : selectedConversation.profilePic;
   const bubbleBgColor = fromMe ? 'bg-blue-500' : 'bg-gray-700';
 
+  const shakeClass = message.shouldShake ? "shake" : '';
+
   return (
     <div className={`chat ${chatClassName} px-2 sm:px-4 py-1 sm:py-2`}>
       <div className='chat-image avatar self-end'>
@@ -25,7 +27,7 @@ const Message = ({ message }) => {
         </div>
       </div>
 
-      <div className={`chat-bubble text-sm sm:text-base text-white ${bubbleBgColor} max-w-[85vw] sm:max-w-md break-words`}>
+      <div className={`chat-bubble text-sm sm:text-base text-white ${bubbleBgColor} ${shakeClass} max-w-[85vw] sm:max-w-md break-words`}>
         {message.message}
       </div>
 

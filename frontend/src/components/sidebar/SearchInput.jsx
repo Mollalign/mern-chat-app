@@ -19,7 +19,7 @@ const SearchInput = () => {
     const conversation = conversations.find((c) => c.fullName.toLowerCase().includes(search.toLowerCase()));
     
     if(conversation) {
-      setSelectedConversion(conversation);
+      setSelectedConversation(conversation);
       setSearch("");
     } else toast.error("No such user found!")
   }
